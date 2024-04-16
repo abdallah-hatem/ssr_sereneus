@@ -44,7 +44,7 @@ export default function FormComp({ inputs, schema, onSubmit }: Props) {
         </Fragment>
       ))}
 
-      <Button children="request_call_back" className="rounded-3xl bg-prim" />
+      <Button className="rounded-3xl bg-prim">request_call_back</Button>
     </form>
   )
 }

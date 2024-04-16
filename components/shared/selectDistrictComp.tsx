@@ -1,22 +1,21 @@
-import { useEffect, useState } from "react"
+"use client"
 
-import { FaChevronDown, FaChevronRight, FaChevronUp } from "react-icons/fa"
+import { RootState } from "@/app/globalRedux/store"
+import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu"
-import { Button } from "../ui/button"
 import TextComp from "../ui/textComp"
-import { icons } from "lucide-react"
-import { useNavigate } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
+import { Button } from "../ui/button"
+import { FaChevronRight } from "react-icons/fa"
 import {
   setSelectedDistrict,
   setSelectedMaunicipality,
-} from "../../store/slices/districtSlice"
-import GET_DISTRICTS from "../../api/getDistricts"
+} from "@/app/globalRedux/features/district/districtSlice"
 
 interface Props {
   icon?: boolean
@@ -29,11 +28,11 @@ export default function SelectDistrictComp({
   data,
   type = "district",
 }: Props) {
-  const router = useNavigate()
-
   const dispatch = useDispatch()
-  const { selectedDistrict } = useSelector((state: any) => state.district)
-  const { selectedMaunicipality } = useSelector((state: any) => state.district)
+  const { selectedDistrict } = useSelector((state: RootState) => state.district)
+  const { selectedMaunicipality } = useSelector(
+    (state: RootState) => state.district
+  )
 
   const [opened, setOpened] = useState(false)
 
@@ -57,7 +56,7 @@ export default function SelectDistrictComp({
   }
 
   return (
-    <DropdownMenu onOpenChange={(e) => setOpened(e)} open={opened}>
+    <DropdownMenu onOpenChange={(e: boolean) => setOpened(e)} open={opened}>
       {/* Trigger */}
       <div className="bg-white hover:bg-white px-3 h-11 rounded-3xl w-full w-full text-left flex justify-between items-center text-black border-[1px] border-gray-400">
         <DropdownMenuTrigger className="w-full h-full">
@@ -77,7 +76,8 @@ export default function SelectDistrictComp({
           <Button
             className="bg-prim p-[7px] rounded-full h-fit text-black"
             onClick={() =>
-              type === "district" && selectedDistrict && router(`/agencies`)
+              // type === "district" && selectedDistrict && router(`/agencies`)
+              ""
             }
           >
             <FaChevronRight />

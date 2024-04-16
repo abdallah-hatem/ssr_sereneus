@@ -1,3 +1,5 @@
+"use client"
+
 import TextComp from "../ui/textComp"
 import { FaEnvelope, FaPhoneAlt } from "react-icons/fa"
 import { z } from "zod"
@@ -23,17 +25,13 @@ export default function Footer() {
         {/* top */}
         <div className="flex flex-row justify-between w-full ">
           {/* logo */}
-          <img
-            src="/images/Sereneus-03.png"
-            alt="logo"
-            className="h-[40px]"
-          />
+          <img src="/images/Sereneus-03.png" alt="logo" className="h-[40px]" />
 
           {/* links */}
           <div className="visible max-[800px]:hidden">
             <ul className="flex flex-col space-y-3">
-              {links.map((el) => (
-                <li>
+              {links.map((el, index) => (
+                <li key={index}>
                   <a href={el.url}>
                     <TextComp className="text-white">{el.name}</TextComp>
                   </a>
@@ -55,8 +53,8 @@ export default function Footer() {
 
         <div className="visible min-[800px]:hidden flex justify-start w-full">
           <ul className="flex flex-col space-y-3">
-            {links.map((el) => (
-              <li>
+            {links.map((el, index) => (
+              <li key={index}>
                 <a href={el.url}>
                   <TextComp className="text-white">{el.name}</TextComp>
                 </a>
@@ -70,7 +68,9 @@ export default function Footer() {
           <TextComp className="text-gray-500">© 2024 Sereneus</TextComp>
           <div>
             <TextComp className="text-gray-500">{"privacy_policy"}</TextComp>
-            <TextComp className="text-gray-500">{"terms_and_condition"}</TextComp>
+            <TextComp className="text-gray-500">
+              {"terms_and_condition"}
+            </TextComp>
           </div>
         </div>
       </div>

@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react"
-import { FaBars, FaPhoneAlt } from "react-icons/fa"
-import { Button } from "../ui/button"
-import { FaXmark } from "react-icons/fa6"
-import useWindowWidth from "../../hooks/useWidth"
-import useScrollPastPoint from "../../hooks/useScrollPastPoint"
+"use client"
+
+import useScrollPastPoint from "@/hooks/useScrollPastPoint"
+import useWindowWidth from "@/hooks/useWidth"
+import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 import TextComp from "../ui/textComp"
+import { Button } from "../ui/button"
+import { FaBars, FaPhoneAlt } from "react-icons/fa"
+import { FaXmark } from "react-icons/fa6"
 
 export default function Navbar() {
   const windowWidth = useWindowWidth()

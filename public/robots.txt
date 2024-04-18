@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
-Sitemap: https://sereneus.pt/sitemap.xml
+Sitemap: https://ssr-sereneus.vercel.app/sitemap.xml
